@@ -50,7 +50,6 @@ int total_players()
 {
    mapping mud_list;
    mixed *muds;
-   string output;
    int loop, size, nb, total=0;
 
    if( !find_object(DNS_MASTER) )
@@ -74,42 +73,10 @@ int total_players()
 
 void logon(object ob)
 {
-    
-    cat(BANNER);
-    write("            西游记欢迎您来访！使用国标码的玩家请键入：gb\n");
-    write("            ﹁村癘舧眤ㄓ砐ㄏノき絏產叫龄big5\n");
-    write("            Welcome to Xi You Ji! Select GB or BIG5 (gb/big5):");
-    input_to( (: encoding :), ob );
-}
-
-private void encoding(string arg, object ob)
-{
    object *usr;
    int i, ttl_cnt, wiz_cnt, ppl_cnt, login_cnt;
    string ip_name, ip_number;
     int ii;
-   int encode;
-   
-   if(!arg || arg=="") {
-       write("\nSelect 国标码 GB or き絏 BIG5 (gb/big5):");
-       input_to( (: encoding :), ob );
-       return;
-   } else if(arg[0..0]=="g" || arg[0..0]=="G")
-       encode=0;
-   else if(arg[0..0]=="b" || arg[0..0]=="B")
-       encode=1;
-   else {
-       write("\nSelect 国标码 GB or き絏 BIG5 (gb/big5):");
-       input_to( (: encoding :), ob );
-       return;
-   }
-   
-   if(encode==0)
-       write("\nUse GB encoded Chinese.\n");
-   else
-       write("\nUse BIG5 encoded Chinese.\n");
-   
-   ob->set_encoding(encode);
 
    ip_name = query_ip_name(ob);
    ip_number = query_ip_number(ob);
@@ -492,7 +459,6 @@ object make_body(object ob)
 {
    string err;
    object user;
-   int n;
 
         if(!ob->query("body")) {
      return 0;
@@ -589,7 +555,8 @@ string dis_attr(int value)
 
 varargs void enter_world(object ob, object user, int silent)
 {
-   object cloth, room, mbx;
+   //object cloth, room, mbx;
+	object mbx;
    string startroom="";
    int num;
 
@@ -751,6 +718,7 @@ varargs int check_legal_name(string name, int max_len)
      printf("对不起，你的中文名字必须是 1 到 %d 个中文字。\n", max_len / 2);
      return 0;
    }
+/*
    while(i--) {
      if( name[i]<=' ' ) {
         write("对不起，你的中文名字不能用控制字元。\n");
@@ -761,6 +729,7 @@ varargs int check_legal_name(string name, int max_len)
         return 0;
      }
    }
+*/
    if( member_array(name, banned_name)!=-1 ) {
      write("对不起，这种名字会造成其他人的困扰。\n");
      return 0;

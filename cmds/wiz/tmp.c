@@ -7,37 +7,24 @@
 
 int main(object me, string arg)
 {
-   mapping mud_list;
-   mapping mud_svc;
-   mixed *muds;
-   string output;
-   int loop, size, nb, total=0;
+	printf("arg=%s\n", arg);
 
-   if( !find_object(DNS_MASTER) )
-     return 0;
+	if (!arg && !stringp(arg))
+		return 1;
 
-   //   Obtain mapping containing mud data
-   mud_list = (mapping)DNS_MASTER->query_muds();
+	printf("%d, %d\n", arg[0], strlen(arg));
 
-   // so we recognise ourselves as a DNS mud
-   mud_svc = DNS_MASTER->query_svc() + ([ Mud_name() : 0 ]);
+	//char c = arg[0];
+	//printf("%d, %d, %d\n", c, c > 160, c < 255);
 
-   if(!mud_list)
-     return 0;
+	if (arg[0] > 160 && arg[0] < 255)
+		printf("is_chinese() = true\n");
+	else
+		printf("is_chinese() = false\n");
 
-   //   Get list of all mud names within name server
-   muds = keys( mud_list ) - ({ "DEFAULT" });
+	printf("%d\n", is_chinese(arg));
 
-   //   Loop through mud list and store one by one
-   for(loop = 0, size = sizeof(muds); loop<size; loop++) {
-                if(mud_list[muds[loop]]["MUDLIB"]=="A Journey to the West") {
-        sscanf (mud_list[muds[loop]]["USERS"],"%d",nb);
-        total += nb; 
-     }
-        }
-
-   tell_object (me,chinese_number(total));
-   return 1;
+    return 1;
 }
 
 
