@@ -1,28 +1,28 @@
 // 神话世界·西游记·版本４．５０
 /* <SecCrypt CPL V3R05> */
  
-
-#include <net/daemons.h>
-#include <net/macros.h>
+int judge(string str)
+{
+	int *codes = convert_utf8(str);
+	for (int i = 0; i < sizeof(codes); i++) {
+		if (codes[i] < 0x4E00 && codes[i] > 0x9FBF) // hanzi qujian
+			return 0;
+	}
+	return 1;
+}
 
 int main(object me, string arg)
 {
 	printf("arg=%s\n", arg);
 
-	if (!arg && !stringp(arg))
+	if (!arg || !stringp(arg) || sizeof(arg) < 3)
 		return 1;
 
 	printf("%d, %d\n", arg[0], strlen(arg));
+	printf("%x, %x, %x\n", arg[0], arg[1], arg[2]);
 
-	//char c = arg[0];
-	//printf("%d, %d, %d\n", c, c > 160, c < 255);
-
-	if (arg[0] > 160 && arg[0] < 255)
-		printf("is_chinese() = true\n");
-	else
-		printf("is_chinese() = false\n");
-
-	printf("%d\n", is_chinese(arg));
+	printf("%O\n", convert_utf8(arg));
+	printf("%d\n", judge(arg));
 
     return 1;
 }

@@ -6,8 +6,52 @@ string chinese_number(int i)
     return CHINESE_D->chinese_number(i);
 }
 
+int *convert_utf8(string str)
+{
+	int *codes = ({});
+	
+	for (int i = 0; i < strlen(str); i++) {
+		int code = str[i];
+		if (str[i] < 0x80) { // [0xxxxxxx ~ 10xxxxxx)
+			// ascii
+		} else if (str[i] < 0xC0) { // [10xxxxxx ~ 110xxxxx)
+			// error
+		} else if (str[i] < 0xE0) { // [110xxxxx ~ 1110xxxx)
+			code = str[i] - 0xC0;
+			code *= 0x40;
+			code += str[i + 1] - 0x80;
+			i += 1;
+		} else if (str[i] < 0xF0) { // [1110xxxx ~ 11110xxx)
+			code = str[i] - 0xE0;
+			code *= 0x40;
+			code += str[i + 1] - 0x80;
+			code *= 0x40;
+			code += str[i + 2] - 0x80;
+			i += 2;
+		} else if (str[i] < 0xF8) { // [11110xx ~ 111110xx)
+			code = str[i] - 0xE0;
+			code *= 0x40;
+			code += str[i + 1] - 0x80;
+			code *= 0x40;
+			code += str[i + 2] - 0x80;
+			code *= 0x40;
+			code += str[i + 3] - 0x80;
+			i += 3;
+		} else { // [111110xx ~ )
+			// error
+		}
+		codes += ({ code });
+	}
+
+	return codes;
+}
+
 int is_chinese(string str)
 {
-    if (strlen(str)>=2 && str[0] > 160 && str[0] < 255) return 1;
-    else return 0;
+	int *codes = convert_utf8(str);
+	for (int i = 0; i < sizeof(codes); i++) {
+		if (codes[i] < 0x4E00 && codes[i] > 0x9FBF) // hanzi qujian
+			return 0;
+	}
+	return 1;
 }

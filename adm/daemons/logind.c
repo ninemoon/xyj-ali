@@ -718,18 +718,10 @@ varargs int check_legal_name(string name, int max_len)
      printf("对不起，你的中文名字必须是 1 到 %d 个中文字。\n", max_len / 2);
      return 0;
    }
-/*
-   while(i--) {
-     if( name[i]<=' ' ) {
-        write("对不起，你的中文名字不能用控制字元。\n");
-        return 0;
-     }
-     if( i%2==0 && !is_chinese(name[i..<0]) ) {
+	if (!is_chinese(name)) {
         write("对不起，请您用「中文」取名字。\n");
-        return 0;
-     }
-   }
-*/
+		return 0;
+	}
    if( member_array(name, banned_name)!=-1 ) {
      write("对不起，这种名字会造成其他人的困扰。\n");
      return 0;
