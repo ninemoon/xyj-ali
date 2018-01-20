@@ -7,8 +7,8 @@
 
 inherit F_CLEAN_UP;
 
-string *sex_ranking_male = ({"³õ³¢½û¹û", "»¶³¡ÀÏÊÖ", "ÓùÅ®ÎŞÊı"});
-string *sex_ranking_female = ({"³õ³¢½û¹û", "´²µÚ¸ßÊÖ", "¿õÊÀÒùÍŞ"});
+string *sex_ranking_male = ({"åˆå°ç¦æœ", "æ¬¢åœºè€æ‰‹", "å¾¡å¥³æ— æ•°"});
+string *sex_ranking_female = ({"åˆå°ç¦æœ", "åºŠç¬¬é«˜æ‰‹", "æ—·ä¸–æ·«å¨ƒ"});
 
 string display_attr(int gift, int value);
 
@@ -28,31 +28,31 @@ int main(object me, string arg)
         ob = present(arg, environment(me));
         if (!ob) ob = find_player(arg);
         if (!ob) ob = find_living(arg);
-        if (!ob) return notify_fail("ÄãÒª²ì¿´Ë­µÄ×´Ì¬£¿\n");
+        if (!ob) return notify_fail("ä½ è¦å¯Ÿçœ‹è°çš„çŠ¶æ€ï¼Ÿ\n");
     } else
-        return notify_fail("Ö»ÓĞÎ×Ê¦ÄÜ²ì¿´±ğÈËµÄ×´Ì¬¡£\n");
+        return notify_fail("åªæœ‰å·«å¸ˆèƒ½å¯Ÿçœ‹åˆ«äººçš„çŠ¶æ€ã€‚\n");
 
     my = ob->query_entire_dbase();
 
-    write(NOR YEL"\n¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô"HIG"¸ö"NOR YEL"¡Ô¡Ô"HIG"ÈË"NOR YEL"¡Ô¡Ô"HIG"µµ"NOR YEL"¡Ô¡Ô"HIG"°¸"NOR YEL"¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô\n"NOR);
+    write(NOR YEL"\nâ‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡"HIG"ä¸ª"NOR YEL"â‰¡â‰¡"HIG"äºº"NOR YEL"â‰¡â‰¡"HIG"æ¡£"NOR YEL"â‰¡â‰¡"HIG"æ¡ˆ"NOR YEL"â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡\n"NOR);
     line = sprintf(BOLD "%s" NOR "%s\n\n", RANK_D->query_rank(ob), ob->short(1));
 
     if (my["always_young"])
-        line += sprintf(" ĞÔ±ğ£º"HIG"%-4s"NOR"  ÄêÁä£º"HIY"%-4sËê"NOR"  ÊÙÔª£º"CYN"%-6sËê"NOR" \n\n",
+        line += sprintf(" æ€§åˆ«ï¼š"HIG"%-4s"NOR"  å¹´é¾„ï¼š"HIY"%-4så²"NOR"  å¯¿å…ƒï¼š"CYN"%-6så²"NOR" \n\n",
             my["gender"], chinese_number(my["fake_age"]), chinese_number(my["age"]));
     else
-        line += sprintf(" ĞÔ±ğ£º"HIG"%-4s"NOR"  ÄêÁä£º"HIY"%-4sËê"NOR" \n\n",
+        line += sprintf(" æ€§åˆ«ï¼š"HIG"%-4s"NOR"  å¹´é¾„ï¼š"HIY"%-4så²"NOR" \n\n",
             my["gender"], chinese_number(my["age"]));
 
     line += sprintf(
-            " Á¦Á¿£º[%s]  | ¶¨Á¦£º[%s]  | µ¨Ê¶£º[%s]  | ÈİÃ²£º[%s]\n",
+            " åŠ›é‡ï¼š[%s]  | å®šåŠ›ï¼š[%s]  | èƒ†è¯†ï¼š[%s]  | å®¹è²Œï¼š[%s]\n",
             display_attr(my["str"], ob->query_str()),
             display_attr(my["cps"], ob->query_cps()),
             display_attr(my["cor"], ob->query_cor()),
             display_attr(my["per"], ob->query_per()),
             );
     line += sprintf(
-            " ÎòĞÔ£º[%s]  | ÁéĞÔ£º[%s]  | ¸ù¹Ç£º[%s]  | ¸£Ôµ£º[%s]\n\n",
+            " æ‚Ÿæ€§ï¼š[%s]  | çµæ€§ï¼š[%s]  | æ ¹éª¨ï¼š[%s]  | ç¦ç¼˜ï¼š[%s]\n\n",
             display_attr(my["int"], ob->query_int()),
             display_attr(my["spi"], ob->query_spi()),
             display_attr(my["con"], ob->query_con()),
@@ -60,60 +60,60 @@ int main(object me, string arg)
             );
 
     if (mapp(my["family"]))
-        line += sprintf(" ÃÅ  ÅÉ£º" HIC "%-6s" NOR, my["family"]["family_name"]);
+        line += sprintf(" é—¨  æ´¾ï¼š" HIC "%-6s" NOR, my["family"]["family_name"]);
     else
-        line += sprintf(" ÃÅ  ÅÉ£º" HIC "ÎŞ" NOR);
+        line += sprintf(" é—¨  æ´¾ï¼š" HIC "æ— " NOR);
     if (mapp(my["family"]) && my["family"]["master_name"])
-        line += sprintf("  Ê¦  ¸¸£º" YEL "%s" NOR, my["family"]["master_name"]);
+        line += sprintf("  å¸ˆ  çˆ¶ï¼š" YEL "%s" NOR, my["family"]["master_name"]);
     else
-        line += sprintf("  Ê¦  ¸¸£º" YEL "ÎŞ" NOR);
+        line += sprintf("  å¸ˆ  çˆ¶ï¼š" YEL "æ— " NOR);
     if (stringp(my["secret_master_name"]))
-        line += sprintf("  ÃØÃÜÊ¦¸¸£º" MAG "%s\n" NOR, my["secret_master_name"]);
+        line += sprintf("  ç§˜å¯†å¸ˆçˆ¶ï¼š" MAG "%s\n" NOR, my["secret_master_name"]);
     else
         line += "\n";
 
-    line += sprintf(" Õ½  ¼¨£ºÉ± %d ÈË£¬ÆäÖĞNPC %d ÈË£¬ÆäËûÍæ¼Ò %d ÈË\n",
+    line += sprintf(" æˆ˜  ç»©ï¼šæ€ %d äººï¼Œå…¶ä¸­NPC %d äººï¼Œå…¶ä»–ç©å®¶ %d äºº\n",
         my["MKS"] + my["PKS"], my["MKS"], my["PKS"]);
 
-    line += " ĞÔ¾­Ñé£º";
+    line += " æ€§ç»éªŒï¼š";
     if (mapp(my["sex"]) && mapp(my["sex"]["lovers"])) {
-        if (my["gender"] == "ÄĞĞÔ") {
+        if (my["gender"] == "ç”·æ€§") {
             line += HIY + sex_ranking_male[sizeof(my["sex"]["lovers"])/10] + NOR;
             if (!my["sex"]["first_semen_lost"])
-                line += "£¬µ«ÈÔ±£³Ö" HIB "Í¯×ÓÖ®Éí" NOR;
-        } else if (my["gender"] == "Å®ĞÔ") {
+                line += "ï¼Œä½†ä»ä¿æŒ" HIB "ç«¥å­ä¹‹èº«" NOR;
+        } else if (my["gender"] == "å¥³æ€§") {
             line += HIY + sex_ranking_female[sizeof(my["sex"]["lovers"])/10] + NOR;
             if (!my["sex"]["hymen_broken"])
-            line += "£¬µ«ÈÔ±£³Ö" HIB "´¦×ÓÖ®Éí" NOR;
+            line += "ï¼Œä½†ä»ä¿æŒ" HIB "å¤„å­ä¹‹èº«" NOR;
         }
     }
     else
-        line += HIB + (my["gender"]=="ÄĞĞÔ"?"Í¯":"´¦") + "×ÓÖ®Éí" NOR;
+        line += HIB + (my["gender"]=="ç”·æ€§"?"ç«¥":"å¤„") + "å­ä¹‹èº«" NOR;
     
     if (undefinedp(my["sex_leaning"]))
         line += "\n";
     else if (my["sex_leaning"] == "both")
-        line += " ĞÔÇãÏò£º" HIY "ÄĞĞÔ" NOR "£¯" HIY "Å®ĞÔ" NOR "\n";
+        line += " æ€§å€¾å‘ï¼š" HIY "ç”·æ€§" NOR "ï¼" HIY "å¥³æ€§" NOR "\n";
     else if (my["sex_leaning"]=="same") {
-        if (my["gender"]=="Å®ĞÔ")
-            line += " ĞÔÇãÏò£º" HIY "Å®ĞÔ" NOR "\n";
+        if (my["gender"]=="å¥³æ€§")
+            line += " æ€§å€¾å‘ï¼š" HIY "å¥³æ€§" NOR "\n";
         else
-            line += " ĞÔÇãÏò£º" HIY "ÄĞĞÔ" NOR "\n";
+            line += " æ€§å€¾å‘ï¼š" HIY "ç”·æ€§" NOR "\n";
     } else if (my["sex_leaning"]=="diff") {
-        if (my["gender"]=="Å®ĞÔ")
-            line += " ĞÔÇãÏò£º" HIY "ÄĞĞÔ" NOR "\n";
+        if (my["gender"]=="å¥³æ€§")
+            line += " æ€§å€¾å‘ï¼š" HIY "ç”·æ€§" NOR "\n";
         else
-            line += " ĞÔÇãÏò£º" HIY "Å®ĞÔ" NOR "\n";
+            line += " æ€§å€¾å‘ï¼š" HIY "å¥³æ€§" NOR "\n";
     } else
         line += "\n";
 
     if (ob->query("balance"))
-        line += " ´æ  ¿î£º" + MONEY_D->money_str((int)ob->query("balance"))+"´æ¿î\n\n";
+        line += " å­˜  æ¬¾ï¼š" + MONEY_D->money_str((int)ob->query("balance"))+"å­˜æ¬¾\n\n";
     else
-        line += " ´æ  ¿î£º" HIW "Ã»ÓĞÈÎºÎ´æ¿î" NOR "\n\n";
+        line += " å­˜  æ¬¾ï¼š" HIW "æ²¡æœ‰ä»»ä½•å­˜æ¬¾" NOR "\n\n";
 
-    line += RED " Î÷ÌìÈ¡¾­" NOR "£º" + OBSTACLES_D->check_obstacles_short(ob) + "\n";
-    line += RED " ´óÄÖÌì¹¬" NOR "£º" + OBSTACLES_D->check_obstacles_short(ob, "dntg") + "\n\n";
+    line += RED " è¥¿å¤©å–ç»" NOR "ï¼š" + OBSTACLES_D->check_obstacles_short(ob) + "\n";
+    line += RED " å¤§é—¹å¤©å®«" NOR "ï¼š" + OBSTACLES_D->check_obstacles_short(ob, "dntg") + "\n\n";
 
     {
         /* ap/dp calc */
@@ -133,24 +133,24 @@ int main(object me, string arg)
         dodge_points = COMBAT_D->skill_power(ob, "dodge",
             SKILL_USAGE_DEFENSE);
     
-        line += sprintf(" ¹¥»÷ÆÀ¼Û£º%s%-10d%s(%s%+5d%s)  ·ÀÓùÆÀ¼Û£º%s%-10d%s(%s%+5d%s)\n",
+        line += sprintf(" æ”»å‡»è¯„ä»·ï¼š%s%-10d%s(%s%+5d%s)  é˜²å¾¡è¯„ä»·ï¼š%s%-10d%s(%s%+5d%s)\n",
             HIW, attack_points/100 + 1, NOR,
             HIR, ob->query_temp("apply/damage"), NOR,
             HIW, (dodge_points + (weapon? parry_points:(parry_points/10)))/100 + 1, NOR,
             HIY, ob->query_temp("apply/armor"), NOR);
     }
 
-    line += sprintf(" µÀĞĞ¾³½ç£º%s           ÎäÑ§¾³½ç£º%s\n",
+    line += sprintf(" é“è¡Œå¢ƒç•Œï¼š%s           æ­¦å­¦å¢ƒç•Œï¼š%s\n",
                 RANK_D->describe_exp(ob->query("combat_exp")),
                 RANK_D->describe_skills(ob->query_skills()));
-    line += sprintf(" ·¨Á¦ĞŞÎª£º%s           ÄÚÁ¦ĞŞÎª£º%s\n",
+    line += sprintf(" æ³•åŠ›ä¿®ä¸ºï¼š%s           å†…åŠ›ä¿®ä¸ºï¼š%s\n",
                 RANK_D->describe_mana(ob->query("max_mana")),
                 RANK_D->describe_force(ob->query("max_force")));
 
-    line += sprintf("\n %sÔÚ ["YEL"Î÷ÓÎ¼Ç"NOR"¡¤"HIG"°¢ÀïÊÀ½ç"NOR"] ÖĞÒÑ¾­ÀúÁË %s µÄËêÔÂ \n",
-        ob == me ? "Äã" : ob->name(1),
+    line += sprintf("\n %såœ¨ ["YEL"è¥¿æ¸¸è®°"NOR"Â·"HIG"é˜¿é‡Œä¸–ç•Œ"NOR"] ä¸­å·²ç»å†äº† %s çš„å²æœˆ \n",
+        ob == me ? "ä½ " : ob->name(1),
         HIR + FINGER_D->age_string( (int)ob->query("mud_age")) + NOR);
-    line += NOR YEL"¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô¡Ô\n"NOR;
+    line += NOR YEL"â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡â‰¡\n"NOR;
 
     write(line);
     return 1;
@@ -166,11 +166,11 @@ string display_attr(int gift, int value)
 int help(object me)
 {
     write(@HELP
-Ö¸Áî¸ñÊ½ : score
-           score <¶ÔÏóÃû³Æ>                   (Î×Ê¦×¨ÓÃ)
+æŒ‡ä»¤æ ¼å¼ : score
+           score <å¯¹è±¡åç§°>                   (å·«å¸ˆä¸“ç”¨)
 
-Õâ¸öÖ¸Áî¿ÉÒÔÏÔÊ¾Äã»òÖ¸¶¨¶ÔÏó(º¬¹ÖÎï)µÄ»ù±¾×ÊÁÏ¡£
-»ù±¾×ÊÁÏµÄÉè¶¨Çë²ÎÔÄ 'help setup'¡£
+è¿™ä¸ªæŒ‡ä»¤å¯ä»¥æ˜¾ç¤ºä½ æˆ–æŒ‡å®šå¯¹è±¡(å«æ€ªç‰©)çš„åŸºæœ¬èµ„æ–™ã€‚
+åŸºæœ¬èµ„æ–™çš„è®¾å®šè¯·å‚é˜… 'help setup'ã€‚
 
 see also : hp
 HELP
