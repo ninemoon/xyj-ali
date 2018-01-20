@@ -5,126 +5,56 @@ inherit ROOM;
 
 void create()
 {
-    set("short", "é“æ¿æ¡¥");
+    set("short", "Ìú°åÇÅ");
     set("long", @LONG
 
-ä½ æ¬ èº«ä¸Šæ¡¥å¤´ï¼Œå†èµ°å†çœ‹ï¼Œå´ä¼¼æœ‰äººå®¶ä½å¤„ä¸€èˆ¬ï¼ŒçœŸä¸ªå¥½æ‰€åœ¨ã€‚ä½†è§é‚£ï¼š
+ÄãÇ·ÉíÉÏÇÅÍ·£¬ÔÙ×ßÔÙ¿´£¬È´ËÆÓÐÈË¼Ò×¡´¦Ò»°ã£¬Õæ¸öºÃËùÔÚ¡£µ«¼ûÄÇ£º
 
-ã€€ã€€ç¿ è—“å †è“ï¼Œç™½äº‘æµ®çŽ‰ï¼Œå…‰æ‘‡ç‰‡ç‰‡çƒŸéœžã€‚è™šçª—é™å®¤ï¼Œæ»‘å‡³æ¿ç”ŸèŠ±ã€‚ä¹³çªŸ
-ã€€ã€€é¾™ç å€šæŒ‚ï¼Œè¦å›žæ»¡åœ°å¥‡è‘©ã€‚åˆè§é‚£ä¸€ç«¿ä¸¤ç«¿ä¿®ç«¹ï¼Œä¸‰ç‚¹äº”ç‚¹æ¢…èŠ±ã€‚å‡ 
-ã€€ã€€æ ‘é’æ¾å¸¸å¸¦é›¨ï¼Œæµ‘ç„¶ç›¸ä¸ªäººå®¶ã€‚
+¡¡¡¡´äÞº¶ÑÀ¶£¬°×ÔÆ¸¡Óñ£¬¹âÒ¡Æ¬Æ¬ÑÌÏ¼¡£Ðé´°¾²ÊÒ£¬»¬µÊ°åÉú»¨¡£Èé¿ß
+¡¡¡¡ÁúÖéÒÐ¹Ò£¬ÝÓ»ØÂúµØÆæÝâ¡£ÓÖ¼ûÄÇÒ»¸ÍÁ½¸ÍÐÞÖñ£¬ÈýµãÎåµãÃ·»¨¡£¼¸
+¡¡¡¡Ê÷ÇàËÉ³£´øÓê£¬»ëÈ»Ïà¸öÈË¼Ò¡£
 
-çœ‹ç½¢å¤šæ—¶ï¼Œè·³è¿‡æ¡¥ä¸­é—´ï¼Œå·¦å³è§‚çœ‹ï¼Œåªè§æ­£å½“ä¸­æœ‰ä¸€çŸ³ç¢£(shi jie)ã€‚
+¿´°Õ¶àÊ±£¬Ìø¹ýÇÅÖÐ¼ä£¬×óÓÒ¹Û¿´£¬Ö»¼ûÕýµ±ÖÐÓÐÒ»Ê¯íÙ(shi jie)¡£
 LONG
     );
 
     set("item_desc", ([
         "shi jie": @SHIJ
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡â–¡â–¡ã€€ã€€ã€€ã€€â–¡â–¡â–¡
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡æ°´â–¡ã€€ã€€ã€€ã€€â–¡èŠ±â–¡ã€€ã€€ã€€ã€€
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡å¸˜â–¡ã€€ã€€ã€€ã€€â–¡æžœâ–¡ã€€ã€€ã€€ã€€ã€€
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡æ´žâ–¡ã€€ã€€ã€€ã€€â–¡å±±â–¡ã€€ã€€ã€€ã€€
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡æ´žâ–¡ã€€ã€€ã€€ã€€â–¡ç¦â–¡ã€€ã€€ã€€ã€€
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡å¤©â–¡ã€€ã€€ã€€ã€€â–¡åœ°â–¡ã€€ã€€ã€€ã€€
-ã€€ã€€ã€€ã€€ã€€ã€€â–¡â–¡â–¡ã€€ã€€ã€€ã€€â–¡â–¡â–¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õ¡õ¡õ¡¡¡¡¡¡¡¡¡õ¡õ¡õ
+¡¡¡¡¡¡¡¡¡¡¡¡¡õË®¡õ¡¡¡¡¡¡¡¡¡õ»¨¡õ¡¡¡¡¡¡¡¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õÁ±¡õ¡¡¡¡¡¡¡¡¡õ¹û¡õ¡¡¡¡¡¡¡¡¡¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õ¶´¡õ¡¡¡¡¡¡¡¡¡õÉ½¡õ¡¡¡¡¡¡¡¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õ¶´¡õ¡¡¡¡¡¡¡¡¡õ¸£¡õ¡¡¡¡¡¡¡¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õÌì¡õ¡¡¡¡¡¡¡¡¡õµØ¡õ¡¡¡¡¡¡¡¡
+¡¡¡¡¡¡¡¡¡¡¡¡¡õ¡õ¡õ¡¡¡¡¡¡¡¡¡õ¡õ¡õ
 SHIJ
     ]));
 
     set("exits", ([
         "east"   : __DIR__"shifang",
     ]));
-    create_door("east", "çŸ³é—¨", "west", DOOR_CLOSED);
+    create_door("east", "Ê¯ÃÅ", "west", DOOR_CLOSED);
     setup();
 }
 
 void init ()
 {
     add_action("do_jump", "jump");
-    add_action ("do_sleep","sleep");
 }
 
 int do_jump(string arg)
 {
     object me = this_player();
     if (!arg || (arg != "bridge" && arg != "qiao"))
-        return notify_fail("ä½ å¾€å“ªå„¿è·³ï¼Ÿ\n");
+        return notify_fail("ÄãÍùÄÄ¶ùÌø£¿\n");
 
     if (random(30) + me->query("kar") < 30) {
-        message_vision("$Nå¥‹åŠ›å‘ä¸Šä¸€è·ƒï¼Œåˆä»ŽåŠç©ºä¸­æ‘”äº†ä¸‹æ¥ã€‚\n", me);
+        message_vision("$N·ÜÁ¦ÏòÉÏÒ»Ô¾£¬ÓÖ´Ó°ë¿ÕÖÐË¤ÁËÏÂÀ´¡£\n", me);
         me->unconcious();
     } else {
-        message_vision("$Nä»Žæ¡¥ä¸Šé£žèº«çºµå‡ºç€‘å¸ƒã€‚\n", me);
+        message_vision("$N´ÓÇÅÉÏ·ÉÉí×Ý³öÆÙ²¼¡£\n", me);
         me->move(__DIR__"fall");
     }
 
     return 1;
-}
-
-int is_drunk(object me)
-{
-    int limit = me->query("con")*6+(int)me->query("max_force")/50;
-    int duration = me->query_condition("drunk");
-    return (duration > limit / 10);
-}
-
-int do_sleep (string arg)
-{
-    object me = this_player();
-    int phase = NATURE_D->get_current_day_phase();
-
-    if (me->query("combat_exp") < 50000) return 0;
-    if (me->query("dntg/hell") == "done") return 0;
-    if (me->query_temp("dntg_hell/next")) return 0;
-
-    if (phase > 0 && phase < 5) {
-        tell_object(me, "å¤§ç™½å¤©çš„ç¡ä»€ä¹ˆè§‰ï¼Ÿ\n");
-        return 1;
-    }
-    if (!is_drunk(me)) {
-        tell_object(me,"ä½ ç²¾ç¥žåè¶³ï¼Œä¸éœ€è¦ç¡è§‰ã€‚\n");
-        return 1;
-    }
-
-    message_vision("$Nå–å¾—é…©é…Šå¤§é†‰ï¼Œå€šåœ¨åœ¨é“æ¿æ¡¥è¾¹æ¾é˜´ä¹‹ä¸‹ï¼ŒéœŽæ—¶é—´ç¡ç€äº†ã€‚\n", me);
-    remove_call_out("go_hell");
-    me->start_busy(7);
-    call_out("go_hell", 2+random(5), me);
-    return 1;
-}
-
-void go_hell(object me)
-{
-    object env;
-    object hei, bai;
-    object piwen;
-    mapping wangs = (["qingguang":"ç§¦å¹¿çŽ‹","songdi":"å®‹å¸çŽ‹","chujiang":"æ¥šæ±ŸçŽ‹",
-        "chuguan":"ä»µå®˜çŽ‹","pingdeng":"å¹³ç­‰çŽ‹","dushi":"éƒ½å¸‚çŽ‹","taishan":"æ³°å±±çŽ‹",
-        "lunzhuan":"è½®è½¬çŽ‹","biancheng":"åžåŸŽçŽ‹","yanluo":"é˜Žç½—çŽ‹"]);
-    string wang = ((string *)keys(wangs))[random(sizeof(wangs))];
-
-    me->interrupt_me(0, 0);
-    me->set_temp("dntg_hell/next", wang);
-
-    tell_object(me, HIB"\nç¡æ¢¦ä¸­å¿½è§ä¸¤äººèµ°äº†è¿‡æ¥ï¼Œå¤§å£°å–é“ï¼šâ€œ"+me->query("name")+
-                "ï¼Œæ±é˜³å¯¿å·²å°½ï¼Œå¾ç­‰å¥‰å†¥çŽ‹ä¹‹å‘½ï¼Œç‰¹æ¥å‹¾ä½ ã€‚â€\n"
-                +"è¯´ç½¢ä¸å®¹åˆ†è¯´ï¼Œæ‹¿æ ¹é“ç´¢å¾€ä½ é¢ˆä¸Šä¸€å¥—ï¼Œæ‹‰äº†å°±èµ°ã€‚\n\n"NOR);
-    env = load_object("/d/death/new-zhaopo");
-    if (!bai = present("bai wuchang", env)) {
-        bai = new("/d/death/npc/baiwuchang");
-        bai->move(env);
-    }
-    if (!hei = present("hei wuchang", env)) {
-        hei = new("/d/death/npc/heiwuchang");
-        hei->move(env);
-    }
-    me->move(env);
-
-    piwen = new("/d/dntg/hell/piwen");
-    if (random(2)) piwen->move(hei);
-    else piwen->move(bai);
-    piwen->set("long","    æŸ¥"+me->query("name")+
-                "é˜³å¯¿å·²å°½ï¼Œç€ä»¤é»‘ç™½æ— å¸¸å°†å…¶é­‚é­„å‹¾æ‹¿å½’æ¡ˆã€‚\n\n"+
-                "                            "+wangs[wang]+"  è°•\n\n\n");
-
-    piwen->set("target", me->query("name"));
 }

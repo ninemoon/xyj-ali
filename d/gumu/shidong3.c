@@ -4,17 +4,18 @@ inherit ROOM;
 
 void create ()
 {
-    set("short", "çŸ³æ´");
+    set("short", "Ê¯¶´");
     set("long", @LONG
 
-ä¸€æ¡é•¿é•¿çš„çŸ³æ´ï¼Œçœ‹ä¸åˆ°å°½å¤´ã€‚ä¸œé¢æœ‰ä¸€ä¸ªå°å®¤ï¼Œéšçº¦ä¼ æ¥ä¸€äº›å¥‡æ€ªçš„
-å£°éŸ³ã€‚
+Ò»Ìõ³¤³¤µÄÊ¯¶´£¬¿´²»µ½¾¡Í·¡£¶«ÃæºÚ¶´¶´µÄ£¬ÒşÔ¼´«À´Ò»Ğ©Ææ¹ÖµÄ
+ÉùÒô¡£Î÷ÃæÓ°´Â´ÂµÄ£¬ÒşÔ¼Æ®À´Ò»ÕóÕóÏãÆø¡£
 LONG);
 
     set("exits", ([ /* sizeof() == 3 */
         "north" : __DIR__"shidong4",
         "south" : __DIR__"shidong2",
-        "east" : __DIR__"testroom1",
+        "east" : __DIR__"tiaojiaoroom",
+        "west" : __DIR__"enjoyroom",
     ]));
 
   setup();
