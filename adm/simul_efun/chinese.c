@@ -6,7 +6,7 @@ string chinese_number(int i)
     return CHINESE_D->chinese_number(i);
 }
 
-int *convert_utf8(string str)
+int *decode_utf8(string str)
 {
 	int *codes = ({});
 	
@@ -48,7 +48,7 @@ int *convert_utf8(string str)
 
 int is_chinese(string str)
 {
-	int *codes = convert_utf8(str);
+	int *codes = decode_utf8(str);
 	for (int i = 0; i < sizeof(codes); i++) {
 		if (codes[i] < 0x4E00 && codes[i] > 0x9FBF) // hanzi qujian
 			return 0;
